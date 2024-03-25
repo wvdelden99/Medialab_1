@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 export function Home() {
     return (
         <View>
-            <Text>Home</Text>
+            <Text className="text-white">Home</Text>
         </View>
     );
 }
