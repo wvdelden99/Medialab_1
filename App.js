@@ -8,6 +8,7 @@ import { Home } from './views/Home';
 import { Discover } from './views/Discover';
 import { Friends } from './views/Friends';
 import { Account } from './views/Account';
+import { Article } from "./views/Article";
 
 
 export default function App() {
