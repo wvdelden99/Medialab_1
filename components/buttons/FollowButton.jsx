@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Text, TouchableOpacity } from "react-native";
-// import { colors } from '../../assets/styles/Styles';
 
 export function FollowButton() {
     const [follow, setFollow] = useState(false);
