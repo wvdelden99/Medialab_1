@@ -1,6 +1,6 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
 // Components
-import { Post } from './../components/Post';
+import { PostCard } from './../components/PostCard';
 
 export function Home() {
     return (
@@ -18,8 +18,8 @@ export function Home() {
                 </TouchableOpacity>
             </View>
 
-            <Post />
-            <Post />
+            <PostCard />
+            <PostCard />
         </View>
     );
 }
