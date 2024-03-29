@@ -11,15 +11,16 @@ import { MoreButton } from './buttons/MoreButton';
 import { FollowButton } from './buttons/FollowButton';
 
 export function PostCard() {
+
     return (
         <View className="mb-20 pb-2">
             <View className="flex-row items-center justify-between mb-4">
                 <TouchableOpacity className="flex-row items-center gap-3">
                     <View className="rotate-45 rounded w-6 h-6 bg-white" style={{ overflow: "hidden"}}>
-                        {/* <View className="-rotate-45 -mt-2 -ml-3">
-                            <Image className=" w-full h-full" style={{ resizeMode: 'cover'}}
-                                    source={require('./../assets/icons/icon_nos_01.png')}/>
-                        </View> */}
+                        {/* <View className="-rotate-45 -mt-2 -ml-3">*/}
+                        {/*    <Image className=" w-full h-full" style={{ resizeMode: 'cover'}}*/}
+                        {/*            source={require('./../assets/icons/icon_nos_01.png')}/>*/}
+                        {/*</View> */}
                     </View>
 
                     <Text className="font-semibold text-white">NOS</Text>
@@ -81,7 +82,7 @@ export function PostCard() {
                         </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity className="flex-row items-center rounded-lg py-2 px-4 bg-secondary">
+                    <TouchableOpacity  className="flex-row items-center rounded-lg py-2 px-4 bg-secondary">
                         <Image className="mr-2 w-4 h-4" style={{ tintColor: "white"}}
                                 source={require('./../assets/icons/icon_book_01.png')} />
                         <Text className="font-semibold text-white">Lezen</Text>

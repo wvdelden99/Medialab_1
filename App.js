@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React, { useState } from 'react';
 import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
 // Components
@@ -21,15 +22,18 @@ export default function App() {
     const renderScreen = () => {
         switch (currentScreen) {
             case 'Home':
-                return <Home />;
+                return <Home  />;
             case 'Discover':
-                return <Discover />;
+                return <Article />;
             case 'Friends':
                 return <Friends />;
             case 'Account':
                 return <Account />;
+            case "Article":
+                return <Article/>
             default:
-                return <Home />;
+                return <Home  />;
+
         }
     };
 

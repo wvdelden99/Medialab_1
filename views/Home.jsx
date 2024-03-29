@@ -18,8 +18,8 @@ export function Home() {
                 </TouchableOpacity>
             </View>
 
-            <PostCard />
-            <PostCard />
+            <PostCard  />
+            <PostCard  />
         </View>
     );
 }
