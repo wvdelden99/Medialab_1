@@ -8,6 +8,7 @@ import Login from '../views/Login';
 import HomeScreen from '../views/HomeScreen'; 
 import UpdateProfile from '../views/UpdateProfile'
 import UpdatePassword from '../views/UpdatePassword'
+import Navigation from '../components/nav/Navigation'
 import useAuth from '../hooks/useAuth';
 
 const Stack = createNativeStackNavigator();
@@ -18,10 +19,11 @@ const NavigationStack = () => {
   if(user){
     return (
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName="Navigation">
           <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
           <Stack.Screen name="UpdateProfile" component={UpdateProfile} options={{headerShown: false}}/>
           <Stack.Screen name="UpdatePassword" component={UpdatePassword} options={{headerShown: false}}/>
+          <Stack.Screen name="Navigation" component={Navigation} options={{headerShown: false}}/>
         </Stack.Navigator>
       </NavigationContainer>
     );

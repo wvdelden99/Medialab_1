@@ -15,9 +15,12 @@ export default function Login() {
     if(email && password) { 
       try {
         await signInWithEmailAndPassword(auth, email, password);
+
+        navigation.navigate('Navigation');
       } catch(err) {
         setError('Ongeldige gebruikersnaam of wachtwoord.');
       }
+
     }
   }
 
