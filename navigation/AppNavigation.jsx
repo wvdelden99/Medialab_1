@@ -39,9 +39,9 @@ const Tabs = () => {
 
         if (route.name === 'Home') {
           iconComponent = focused ? <HomeIcon size={size} color={color} /> : <HomeIcon size={size} color="gray" />;
-        } else if (route.name === 'Discover') {
+        } else if (route.name === 'Ontdek') {
           iconComponent = focused ? <MagnifyingGlassIcon size={size} color={color} /> : <MagnifyingGlassIcon size={size} color="gray" />;
-        } else if (route.name === 'Friends') {
+        } else if (route.name === 'Vrienden') {
           iconComponent = focused ? <InboxIcon size={size} color={color} /> : <InboxIcon size={size} color="gray" />;
         } else if (route.name === 'Account') {
           iconComponent = focused ? <UserIcon size={size} color={color} /> : <UserIcon size={size} color="gray" />;
@@ -65,8 +65,8 @@ const Tabs = () => {
     })}
   >
     <Tab.Screen name="Home" component={HomeStackScreen} />
-    <Tab.Screen name="Discover" component={Discover} />
-    <Tab.Screen name="Friends" component={Friends} />
+    <Tab.Screen name="Ontdek" component={Discover} />
+    <Tab.Screen name="Vrienden" component={Friends} />
     <Tab.Screen name="Account" component={Account} />
   </Tab.Navigator>
   );

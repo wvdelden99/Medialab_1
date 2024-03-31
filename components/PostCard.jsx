@@ -12,12 +12,12 @@ import { FollowButton } from './buttons/FollowButton';
 
 import { useNavigation } from '@react-navigation/native'
 
-export function PostCard() {
+export function PostCard({ post }) {
 
     const navigation = useNavigation();
 
     return (
-        <View className="mb-20 pb-2">
+        <View className="mb-4 pb-2">
             <View className="flex-row items-center justify-between mb-4">
                 <TouchableOpacity className="flex-row items-center gap-3">
                     <View className="rotate-45 rounded w-6 h-6 bg-white" style={{ overflow: "hidden"}}>
@@ -27,7 +27,7 @@ export function PostCard() {
                         {/*</View> */}
                     </View>
 
-                    <Text className="font-semibold text-white">NOS</Text>
+                    <Text className="font-semibold text-white">{post.author}</Text>
                 </TouchableOpacity>
 
                 <View className="flex-row items-center gap-3">
@@ -41,19 +41,17 @@ export function PostCard() {
                 </View>
             </View>
 
-            <Swiper className="h-[380px]" 
+            <Swiper className="h-[480px]" 
                     showsButtons={false}  
-                    paginationStyle={{ alignItems: "start", paddingVertical: 6, backgroundColor: colors.primaryLightColor }}
+                    paginationStyle={{ alignItems: "start", paddingVertical: 6, backgroundColor: colors.primaryLightColor, marginBottom: -25, }}
                     dotStyle={{ borderRadius: 100, width: 10, height: 10, backgroundColor: colors.primaryDarkColor }}
                     activeDotStyle={{ borderRadius: 100, width: 10, height: 10, backgroundColor: colors.secondaryColor }}>
-                <View>
-                    <Image className="rounded-md w-full h-full" style={{ resizeMode: "cover"}}
-                            source={require('./../assets/images/image_ai_01.png')}/>
-                </View>
-                <View>
-                    <Image className="rounded-md w-full h-full" style={{ resizeMode: "cover"}}
-                            source={require('./../assets/images/image_ai_02.png')}/>
-                </View>
+                    {post.imageURLs.map((imageUrl, index) => (
+                        <View key={index}>
+                            <Image className="rounded-md w-full h-full" style={{ resizeMode: "cover"}}
+                                source={{ uri: imageUrl }} />
+                        </View>
+                    ))}
             </Swiper>
 
             <View className="py-4">
@@ -75,19 +73,21 @@ export function PostCard() {
                     <SavedButton />
                 </View>
 
+                <View className="mt-4">
+                    <Text className="text-white text-xl font-bold">{post.title}</Text>
+                </View>
+
                 <View className="flex-row justify-between pt-4 pb-3">
-                    <View className="flex-row gap-2">
-                        <TouchableOpacity className="rounded-xl py-2 px-4 bg-primary-light">
-                            <Text className="font-semibold text-white">Nieuws</Text>
-                        </TouchableOpacity>
+                        <View className="flex-row gap-2">
+                            {post.tags.map((tag, index) => (
+                                <TouchableOpacity key={index} className="rounded-xl py-2 px-4 bg-primary-light">
+                                    <Text className="font-semibold text-white">{tag}</Text>
+                                </TouchableOpacity>
+                            ))}
+                        </View>
 
-                        <TouchableOpacity className="rounded-xl py-2 px-4 bg-primary-light">
-                            <Text className="font-semibold text-white">Cultuur</Text>
-                        </TouchableOpacity>
-                    </View>
-
-                    <TouchableOpacity  className="flex-row items-center rounded-lg py-2 px-4 bg-secondary"
-                        onPress={() => navigation.navigate('Article')}>
+                        <TouchableOpacity  className="flex-row items-center rounded-lg py-2 px-4 bg-secondary"
+                        onPress={() => navigation.navigate('Article', { post: post, postId: post.id })}>
                         <Image className="mr-2 w-4 h-4" style={{ tintColor: "white"}}
                                 source={require('./../assets/icons/icon_book_01.png')} />
                         <Text className="font-semibold text-white">Lezen</Text>

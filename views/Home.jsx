@@ -1,9 +1,33 @@
+import React, { useEffect, useState } from 'react';
 import { Image, Text, TouchableOpacity, View, SafeAreaView, StatusBar, ScrollView } from "react-native";
 // Components
 import { PostCard } from './../components/PostCard';
 import { Header } from "../components/layout/Header";
 
+import { collection, getDocs } from 'firebase/firestore';
+
+import { db } from '../config/firebase';
+
 export function Home() {
+
+    const [posts, setPosts] = useState([]);
+ 
+    const fetchPost = async () => {
+       
+        await getDocs(collection(db, "posts"))
+            .then((querySnapshot)=>{               
+                const newData = querySnapshot.docs
+                    .map((doc) => ({...doc.data(), id:doc.id }));
+                setPosts(newData);                
+                console.log(posts, newData);
+            })
+       
+    }
+   
+    useEffect(()=>{
+        fetchPost();
+    }, [])
+
     return (
         <SafeAreaView className="flex-[1] bg-primary-dark">
             <StatusBar barStyle="light-content" />
@@ -24,8 +48,10 @@ export function Home() {
                     </TouchableOpacity>
                 </View>
 
-                <PostCard />
-                <PostCard />
+               {/* Map over de posts en render een PostCard component voor elk post */}
+                    {posts.map(post => (
+                        <PostCard key={post.id} post={post} />
+                    ))}
             </View>
             </ScrollView>
             
