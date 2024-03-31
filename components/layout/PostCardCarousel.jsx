@@ -7,10 +7,6 @@ export function PostCardCarousel({uri}) {
         <View className="relative mr-5">
             <Image className="rounded-lg w-[150px] h-[200px]"
                     source={{uri}}/>
-
-            {/* <LinearGradient
-                    colors={['rgba(0,0,0,0)', colors.primaryLightColor]}
-                /> */}
             
             <LinearGradient className="absolute rounded-b-lg w-full h-full"
                             colors={['rgba(0,0,0,0)', colors.primaryLightColor]} />
