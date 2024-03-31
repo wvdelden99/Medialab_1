@@ -1,4 +1,4 @@
-import { FlatList, Image, Text, TouchableOpacity, View, SafeAreaView, StatusBar, ScrollView } from "react-native";
+import { FlatList, Text, View, SafeAreaView, StatusBar, ScrollView } from "react-native";
 // Component
 import { Header } from './../components/layout/Header';
 import { PostCardCarousel } from "../components/layout/PostCardCarousel";
@@ -6,6 +6,8 @@ import { sampleData } from "../data";
 
 
 export function Discover() {
+    const maxItems = 5;
+
     return (
         <SafeAreaView className="flex-[1] bg-primary-dark">
             <StatusBar barStyle="light-content" />
@@ -21,7 +23,7 @@ export function Discover() {
                         <Text className="my-4 text-md font-semibold text-white">Politiek</Text>
 
                         <FlatList
-                            data={sampleData}
+                            data={sampleData.slice(0, maxItems)}
                             horizontal
                             showsHorizontalScrollIndicator={false}
                             keyExtractor={item => item.id.toString()}
@@ -32,7 +34,7 @@ export function Discover() {
                         <Text className="my-4 text-md font-semibold text-white">Cultuur</Text>
 
                         <FlatList
-                            data={sampleData}
+                            data={sampleData.slice(0, maxItems)}
                             horizontal
                             showsHorizontalScrollIndicator={false}
                             keyExtractor={item => item.id.toString()}
@@ -43,7 +45,7 @@ export function Discover() {
                         <Text className="my-4 text-md font-semibold text-white">Economie</Text>
 
                         <FlatList
-                            data={sampleData}
+                            data={sampleData.slice(0, maxItems)}
                             horizontal
                             showsHorizontalScrollIndicator={false}
                             keyExtractor={item => item.id.toString()}
