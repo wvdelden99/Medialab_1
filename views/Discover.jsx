@@ -1,9 +1,59 @@
-import { Text, View } from "react-native";
+import { FlatList, Text, View, SafeAreaView, StatusBar, ScrollView } from "react-native";
+// Component
+import { Header } from './../components/layout/Header';
+import { PostCardCarousel } from "../components/layout/PostCardCarousel";
+import { sampleData } from "../data";
+
 
 export function Discover() {
+    const maxItems = 5;
+
     return (
-        <View>
-            <Text className="text-white">Discover</Text>
-        </View>
+        <SafeAreaView className="flex-[1] bg-primary-dark">
+            <StatusBar barStyle="light-content" />
+            <Header />
+
+            <ScrollView className="flex-[1] bg-primary">
+                <View className="mx-4">
+                    <View className="mt-4">
+                        <Text className="text-lg font-bold text-white">Ontdek in verschillende categorieën</Text>
+                    </View>
+
+                    <View className="my-2">
+                        <Text className="my-4 text-md font-semibold text-white">Politiek</Text>
+
+                        <FlatList
+                            data={sampleData.slice(0, maxItems)}
+                            horizontal
+                            showsHorizontalScrollIndicator={false}
+                            keyExtractor={item => item.id.toString()}
+                            renderItem={({item}) => <PostCardCarousel uri={item.uri} />}/>
+                    </View>
+
+                    <View className="my-2">
+                        <Text className="my-4 text-md font-semibold text-white">Cultuur</Text>
+
+                        <FlatList
+                            data={sampleData.slice(0, maxItems)}
+                            horizontal
+                            showsHorizontalScrollIndicator={false}
+                            keyExtractor={item => item.id.toString()}
+                            renderItem={({item}) => <PostCardCarousel uri={item.uri} />}/>
+                    </View>
+
+                    <View className="my-2">
+                        <Text className="my-4 text-md font-semibold text-white">Economie</Text>
+
+                        <FlatList
+                            data={sampleData.slice(0, maxItems)}
+                            horizontal
+                            showsHorizontalScrollIndicator={false}
+                            keyExtractor={item => item.id.toString()}
+                            renderItem={({item}) => <PostCardCarousel uri={item.uri} />}/>
+                    </View>
+                </View>
+            </ScrollView>
+            
+        </SafeAreaView>
     );
 }
