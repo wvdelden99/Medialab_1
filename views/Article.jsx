@@ -5,14 +5,8 @@ import {colors} from "../assets/styles/Styles";
 import {MoreButton} from "../components/buttons/MoreButton";
 import {FollowButton} from "../components/buttons/FollowButton";
 import { Header } from './../components/layout/Header';
-import { Navbar } from './../components/nav/Navbar';
 import { ArrowLeftIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native'
-
-import { Home } from './Home';
-import { Discover } from './Discover';
-import { Friends } from './Friends';
-import { Account } from './Account';
 
 export function Article(){
 
