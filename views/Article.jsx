@@ -1,10 +1,22 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity, SafeAreaView, StatusBar, ScrollView, useState} from 'react-native';
 import Swiper from 'react-native-swiper';
 import {colors} from "../assets/styles/Styles";
 import {MoreButton} from "../components/buttons/MoreButton";
 import {FollowButton} from "../components/buttons/FollowButton";
+import { Header } from './../components/layout/Header';
+import { Navbar } from './../components/nav/Navbar';
+import { ArrowLeftIcon } from 'react-native-heroicons/solid';
+import { useNavigation } from '@react-navigation/native'
+
+import { Home } from './Home';
+import { Discover } from './Discover';
+import { Friends } from './Friends';
+import { Account } from './Account';
+
 export function Article(){
+
+    const navigation = useNavigation();
 
     const images = [
        "https://www.zorgbelanginclusief.nl/media/vbdpcdbx/covid-19.jpg",
@@ -15,7 +27,21 @@ export function Article(){
     ];
     return (
         <>
-        <Swiper className="h-[380px]"
+
+    <SafeAreaView className="flex-[1] bg-primary-dark">
+            <StatusBar barStyle="light-content" />
+            <Header />
+
+            <View className="flex-row justify-start absolute mt-16">
+              <TouchableOpacity 
+                  onPress={() => navigation.goBack()}
+                  className="bg-primary p-2 rounded-tr-2xl rounded-bl-2xl ml-4">
+                  <ArrowLeftIcon size="20" color="white"></ArrowLeftIcon>
+              </TouchableOpacity>
+            </View>
+
+            <ScrollView className="flex-[1] bg-primary">
+            <Swiper className="h-[380px]"
                 showsButtons={false}
                 loop={false}
                 paginationStyle={{ bottom: -10, paddingVertical: 8, backgroundColor: colors.primaryColor, }}
@@ -50,7 +76,7 @@ export function Article(){
                 </View>
             </View>
 
-            <View className="mt-7 ml-4">
+            <View className="mt-7 ml-4 bg-primary">
                 <Text className="text-lg font-bold color-white">Corona uitbraak bereikt all time high :0</Text>
 
                 <Text className="text-base color-white mt-3">
@@ -68,6 +94,8 @@ export function Article(){
                 </Text>
             </View>
 
+            </ScrollView>
+        </SafeAreaView>
 
 
         </>

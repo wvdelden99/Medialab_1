@@ -10,7 +10,11 @@ import { SavedButton } from './buttons/SavedButton';
 import { MoreButton } from './buttons/MoreButton';
 import { FollowButton } from './buttons/FollowButton';
 
+import { useNavigation } from '@react-navigation/native'
+
 export function PostCard() {
+
+    const navigation = useNavigation();
 
     return (
         <View className="mb-20 pb-2">
@@ -82,7 +86,8 @@ export function PostCard() {
                         </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity  className="flex-row items-center rounded-lg py-2 px-4 bg-secondary">
+                    <TouchableOpacity  className="flex-row items-center rounded-lg py-2 px-4 bg-secondary"
+                        onPress={() => navigation.navigate('Article')}>
                         <Image className="mr-2 w-4 h-4" style={{ tintColor: "white"}}
                                 source={require('./../assets/icons/icon_book_01.png')} />
                         <Text className="font-semibold text-white">Lezen</Text>
