@@ -19,6 +19,7 @@ import { Article } from '../views/Article'
 import UserPreference from '../views/UserPreference';
 import UserPreferenceProfile from '../views/UserPreferenceProfile';
 import { Search } from '../views/Search';
+import Suprise from '../views/Suprise';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -32,6 +33,7 @@ function HomeStackScreen() {
             <HomeStack.Screen name="HomeScreen" component={Home} options={{ headerShown: false }}/>
             <HomeStack.Screen name="Article" component={Article} options={{ headerShown: false }} />
             <DiscoverStack.Screen name="Search" component={Search} options={{ headerShown: false }} />
+            <DiscoverStack.Screen name="Suprise" component={Suprise} options={{ headerShown: false }} />
         </HomeStack.Navigator>
     );
 }

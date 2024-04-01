@@ -13,10 +13,10 @@ export function SurpriseButton(){
 
     return (
         <View className="flex-row items-center rounded-lg py-2 px-4 bg-secondary">
-            <TouchableOpacity onPress={toggleModal}>
-                <Text className="font-semibold text-white">Verras me</Text>
+            <TouchableOpacity onPress={toggleModal} className="flex-row">
                 <Image className="w-4 h-4" style={{ tintColor: "white"}}
                        source={require('./../../assets/images/dice2.png')} />
+                <Text className="font-semibold text-white px-3">Verras me</Text>
             </TouchableOpacity>
 
             <Modal

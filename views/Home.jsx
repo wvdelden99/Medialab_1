@@ -74,7 +74,15 @@ export function Home() {
                         <Image className="w-4 h-4" style={{ tintColor: "white"}}
                                 source={require('./../assets/icons/icon_arrow_01.png')} />
                     </TouchableOpacity>
-                    <SurpriseButton/>
+                    {/* <SurpriseButton/> */}
+
+                    <TouchableOpacity onPress={() => navigation.navigate('Suprise')} className="flex-row items-center rounded-lg py-2 px-4 bg-secondary">
+                        <Image className="w-4 h-4" style={{ tintColor: "white"}}
+                            source={require('./../assets/images/dice2.png')} />
+                        <Text className="font-semibold text-white px-3">Verras me</Text>
+                    </TouchableOpacity>
+
+
                     <TouchableOpacity className="mr-2" onPress={() => navigation.navigate('Search')}>
                         <Image className="w-6 h-6" style={{ tintColor: "white"}}
                                 source={require('./../assets/icons/icon_search_01.png')} />
