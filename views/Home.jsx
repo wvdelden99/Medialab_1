@@ -6,6 +6,7 @@ import { db } from '../config/firebase';
 import { Header } from "../components/layout/Header";
 import { PostCard } from './../components/PostCard';
 import { useNavigation } from '@react-navigation/native';
+import {SurpriseButton} from "../components/buttons/SurpriseButton";
 
 export function Home() {
     const navigation = useNavigation();
@@ -73,7 +74,7 @@ export function Home() {
                         <Image className="w-4 h-4" style={{ tintColor: "white"}}
                                 source={require('./../assets/icons/icon_arrow_01.png')} />
                     </TouchableOpacity>
-
+                    <SurpriseButton/>
                     <TouchableOpacity className="mr-2" onPress={() => navigation.navigate('Search')}>
                         <Image className="w-6 h-6" style={{ tintColor: "white"}}
                                 source={require('./../assets/icons/icon_search_01.png')} />
