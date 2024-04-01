@@ -13,17 +13,9 @@ import { useRoute } from '@react-navigation/native';
 export function Article(){
 
     const navigation = useNavigation();
-
     const route = useRoute();
-    const { post, postId } = route.params;
+    const { post } = route.params;
 
-    const images = [
-       "https://www.zorgbelanginclusief.nl/media/vbdpcdbx/covid-19.jpg",
-       "https://www.zorgbelanginclusief.nl/media/vbdpcdbx/covid-19.jpg",
-       "https://www.zorgbelanginclusief.nl/media/vbdpcdbx/covid-19.jpg",
-
-
-    ];
     return (
         <>
 

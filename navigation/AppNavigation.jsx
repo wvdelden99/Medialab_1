@@ -20,6 +20,7 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const HomeStack = createNativeStackNavigator();
+const DiscoverStack = createNativeStackNavigator();
 
 function HomeStackScreen() {
   return (
@@ -27,6 +28,15 @@ function HomeStackScreen() {
       <HomeStack.Screen name="HomeScreen" component={Home} options={{ headerShown: false }}/>
       <HomeStack.Screen name="Article" component={Article} options={{ headerShown: false }} />
     </HomeStack.Navigator>
+  );
+}
+
+function DiscoverStackScreen() {
+  return (
+    <DiscoverStack.Navigator>
+      <DiscoverStack.Screen name="Discover" component={Discover} options={{ headerShown: false }}/>
+      <DiscoverStack.Screen name="Article" component={Article} options={{ headerShown: false }} />
+    </DiscoverStack.Navigator>
   );
 }
 
@@ -66,7 +76,7 @@ const Tabs = () => {
     })}
   >
     <Tab.Screen name="Home" component={HomeStackScreen} />
-    <Tab.Screen name="Ontdek" component={Discover} />
+    <Tab.Screen name="Ontdek" component={DiscoverStackScreen} />
     <Tab.Screen name="Vrienden" component={Friends} />
     <Tab.Screen name="Account" component={Account} />
   </Tab.Navigator>

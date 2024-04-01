@@ -51,7 +51,7 @@ export function Discover() {
                             horizontal
                             showsHorizontalScrollIndicator={false}
                             keyExtractor={item => item.id.toString()}
-                            renderItem={({ item }) => <PostCardCarousel imageURLs={item.imageURLs} title={item.title} />} />
+                            renderItem={({ item }) => <PostCardCarousel post={item} />} />
                     </View>
 
                     <View className="my-2">
