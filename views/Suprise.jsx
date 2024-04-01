@@ -52,32 +52,38 @@ export default function Surprise() {
               </TouchableOpacity>
             </View>
 
-            <View className=" flex-1 items-center bg-primary">
-                <Text className="text-white mt-12 mb-10 text-xl font-bold px-10 text-center">
-                    Draai aan de dobbelsteen voor een verassingsartikel!
-                </Text>
+            <View className=" flex-[1] items-center pt-8 bg-primary">
+                <View className="max-w-[240px]">
+                    <Text className="text-lg text-center text-white font-bold ">
+                        Draai aan de dobbelsteen voor een verassingsartikel!
+                    </Text>
+                </View>
+
                 {/* Dobbelsteen afbeelding */}
-                <TouchableOpacity onPress={handleDiceClick}>
-                    <Image style={{ width: 70, height: 70 }} source={require('./../assets/images/dice.png')} />
+                <TouchableOpacity className="my-6" onPress={handleDiceClick}>
+                    <Image className="w-14 h-14" style={{ tintColor: "white"}} source={require('./../assets/icons/icon_dice_01.png')} />
                 </TouchableOpacity>
 
             {/* Toon de willekeurige post als deze beschikbaar is */}
             {randomPost && (
-                <View className="items-center mt-12" style={{ shadowColor: 'gray', shadowOffset: { width: 0, height: -2 }, shadowOpacity: 0.75, shadowRadius: 20 }}>
-                    <TouchableOpacity style={{ position: 'relative', marginRight: 5 }}>
+                <View className="items-center" style={{ shadowColor: colors.secondaryColor, shadowOffset: { width: 0, height: -2 }, shadowOpacity: 0.35, shadowRadius: 20 }}>
+                    <TouchableOpacity className="relative" onPress={() => navigation.navigate('Article', { post: randomPost })}>
                         {randomPost.imageURLs && randomPost.imageURLs.length > 0 && (
-                            <Image source={{ uri: randomPost.imageURLs[0] }} style={{ borderRadius: 10, width: 250, height: 325 }} />
+                            <Image className="rounded-xl w-[240px] h-[320px]"
+                                    source={{ uri: randomPost.imageURLs[0] }} />
                         )}
-                        <LinearGradient style={{ position: 'absolute', borderRadius: 10, width: '59%', height: '100%' }} colors={['rgba(0,0,0,0)', colors.primaryLightColor]} />
-                        <View style={{ position: 'absolute', padding: 8, bottom: 0, left: 0, right: 0 }}>
-                            <Text style={{ fontSize: 14, textAlign: 'center', fontWeight: 'bold', color: 'white', paddingBottom: 10 }}>{randomPost.title}</Text>
+                        <LinearGradient className="absolute rounded-xl w-[240px] h-full" colors={['rgba(0,0,0,0)', colors.primaryLightColor]} />
+                        <View className="absolute p-4 bottom-0 left-0 right-0">
+                            <Text className="text-sm text-center font-semibold text-white">{randomPost.title}</Text>
                         </View>
                     </TouchableOpacity>
+                    
                     {/* Voeg hier andere informatie van de post toe */}
-                    <TouchableOpacity onPress={() => navigation.navigate('Article', { post: randomPost })} className="flex-row items-center rounded-lg py-2 px-4 bg-secondary mt-8">
-                    <Image className="mr-2 w-4 h-4" style={{ tintColor: "white"}}
+                    <TouchableOpacity className="flex-row items-center rounded-lg py-2 px-4 bg-secondary mt-8"
+                        onPress={() => navigation.navigate('Article', { post: randomPost })}>
+                        <Image className="mr-2 w-4 h-4" style={{ tintColor: "white"}}
                                 source={require('./../assets/icons/icon_book_01.png')} />
-                        <Text className="font-semibold text-white px-1">Lees de artikel</Text>
+                        <Text className="font-semibold text-white px-1">Lees het artikel</Text>
                     </TouchableOpacity>
                 </View>
             )}

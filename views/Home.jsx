@@ -74,19 +74,22 @@ export function Home() {
                         <Image className="w-4 h-4" style={{ tintColor: "white"}}
                                 source={require('./../assets/icons/icon_arrow_01.png')} />
                     </TouchableOpacity>
-                    {/* <SurpriseButton/> */}
+              
 
-                    <TouchableOpacity onPress={() => navigation.navigate('Suprise')} className="flex-row items-center rounded-lg py-2 px-4 bg-secondary">
-                        <Image className="w-4 h-4" style={{ tintColor: "white"}}
-                            source={require('./../assets/images/dice2.png')} />
-                        <Text className="font-semibold text-white px-3">Verras me</Text>
-                    </TouchableOpacity>
+                    <View className="flex-row items-center gap-2">
+                        {/* <SurpriseButton/> */}
+                        <TouchableOpacity className="flex-row items-center rounded-lg py-2 px-3 bg-secondary"
+                                            onPress={() => navigation.navigate('Suprise')} >
+                            <Image className="rotate-[45deg] mr-2 w-4 h-4" style={{ tintColor: "white"}}
+                                    source={require('./../assets/icons/icon_dice_01.png')} />
+                            <Text className="text-sm font-semibold text-white">Verras me</Text>
+                        </TouchableOpacity>
 
-
-                    <TouchableOpacity className="mr-2" onPress={() => navigation.navigate('Search')}>
-                        <Image className="w-6 h-6" style={{ tintColor: "white"}}
-                                source={require('./../assets/icons/icon_search_01.png')} />
-                    </TouchableOpacity>
+                        <TouchableOpacity className="mr-2" onPress={() => navigation.navigate('Search')}>
+                            <Image className="w-6 h-6" style={{ tintColor: "white"}}
+                                    source={require('./../assets/icons/icon_search_01.png')} />
+                        </TouchableOpacity>
+                    </View>
                 </View>
 
                {/* Map over de gefilterde berichten en render een PostCard component voor elk bericht */}
