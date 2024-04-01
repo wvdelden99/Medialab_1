@@ -1,31 +1,63 @@
 import React, { useEffect, useState } from 'react';
 import { Image, Text, TouchableOpacity, View, SafeAreaView, StatusBar, ScrollView } from "react-native";
-// Components
-import { PostCard } from './../components/PostCard';
-import { Header } from "../components/layout/Header";
-
-import { collection, getDocs } from 'firebase/firestore';
-
+import { useFocusEffect } from '@react-navigation/native'; // Importeer useFocusEffect uit react-navigation/native
+import { collection, getDocs, where, query } from 'firebase/firestore';
 import { db } from '../config/firebase';
+import { Header } from "../components/layout/Header";
+import { PostCard } from './../components/PostCard';
 
 export function Home() {
 
     const [posts, setPosts] = useState([]);
- 
-    const fetchPost = async () => {
-       
-        await getDocs(collection(db, "posts"))
-            .then((querySnapshot)=>{               
-                const newData = querySnapshot.docs
-                    .map((doc) => ({...doc.data(), id:doc.id }));
-                setPosts(newData);                
-                console.log(posts, newData);
-            })
-    }
-   
-    useEffect(()=>{
-        fetchPost();
-    }, [])
+    const [userPreferences, setUserPreferences] = useState([]);
+
+    useFocusEffect(
+        React.useCallback(() => {
+            // Plaats hier de code die je wilt uitvoeren wanneer het scherm de focus krijgt
+            const fetchUserPreferences = async () => {
+                try {
+                    const userPreferencesSnapshot = await getDocs(collection(db, "userPreferences"));
+                    const userPreferencesData = userPreferencesSnapshot.docs.map(doc => doc.data());
+                    console.log("User preferences:", userPreferencesData);
+                    setUserPreferences(userPreferencesData);
+                    fetchAndFilterPosts(userPreferencesData); // Roep fetchAndFilterPosts direct aan na het instellen van de voorkeuren
+                } catch (error) {
+                    console.error("Error fetching user preferences:", error);
+                }
+            };
+        
+            const fetchAndFilterPosts = async (userPreferencesData) => {
+                try {
+                    const selectedTags = userPreferencesData[0]?.selectedTags || [];
+        
+                    if (selectedTags.length === 0) {
+                        // Als er geen tags zijn geselecteerd, haal alle berichten op
+                        const allPostsSnapshot = await getDocs(collection(db, "posts"));
+                        const allPostsData = allPostsSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+                        setPosts(allPostsData);
+                        return;
+                    }
+        
+                    // Voer de query alleen uit als er tags zijn geselecteerd
+                    const q = query(collection(db, "posts"), where("tags", "array-contains-any", selectedTags));
+                    const querySnapshot = await getDocs(q);
+        
+                    const filteredPosts = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+                    console.log("Filtered posts:", filteredPosts);
+        
+                    setPosts(filteredPosts);
+                } catch (error) {
+                    console.error("Error fetching and filtering posts:", error);
+                }
+            };
+        
+            fetchUserPreferences();
+
+            return () => {
+                // Optionele opruimacties
+            };
+        }, [])
+    );
 
     return (
         <SafeAreaView className="flex-[1] bg-primary-dark">
@@ -47,7 +79,7 @@ export function Home() {
                     </TouchableOpacity>
                 </View>
 
-               {/* Map over de posts en render een PostCard component voor elk post */}
+               {/* Map over de gefilterde berichten en render een PostCard component voor elk bericht */}
                     {posts.map(post => (
                         <PostCard key={post.id} post={post} />
                     ))}
