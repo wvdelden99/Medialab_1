@@ -13,6 +13,7 @@ import { useRoute } from '@react-navigation/native';
 export function Article(){
 
     const navigation = useNavigation();
+
     const route = useRoute();
     const { post } = route.params;
 

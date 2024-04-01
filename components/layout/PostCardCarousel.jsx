@@ -10,7 +10,7 @@ export function PostCardCarousel({ post }) {
     const title = post.title;
 
     // Haal de URI van de eerste afbeelding op, of een standaardafbeelding als er geen afbeeldingen zijn
-    const firstImageUri = imageURLs && imageURLs.length > 0 ? imageURLs[0] : 'plaats_hier_de_standaard_uri_voor_als_er_geen_afbeeldingen_zijn';
+    const firstImageUri = imageURLs && imageURLs.length > 0 ? imageURLs[0] : '';
 
     const handlePress = () => {
         navigation.navigate('Article', { post });
