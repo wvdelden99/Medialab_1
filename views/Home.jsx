@@ -21,7 +21,6 @@ export function Home() {
                 setPosts(newData);                
                 console.log(posts, newData);
             })
-       
     }
    
     useEffect(()=>{
