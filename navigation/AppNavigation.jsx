@@ -14,6 +14,7 @@ import UpdatePassword from '../views/UpdatePassword'
 import { Article } from '../views/Article'
 import useAuth from '../hooks/useAuth';
 import { HomeIcon, MagnifyingGlassIcon, InboxIcon, UserIcon } from 'react-native-heroicons/solid';
+import UserPreference from '../views/UserPreference';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -80,6 +81,7 @@ const NavigationStack = () => {
       <Stack.Navigator>
         {user ? (
           <>
+            <Stack.Screen name="UserPreference" component={UserPreference} options={{ headerShown: false }} />
             <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
             <Stack.Screen name="UpdateProfile" component={UpdateProfile} options={{ headerShown: false }} />
             <Stack.Screen name="UpdatePassword" component={UpdatePassword} options={{ headerShown: false }} />

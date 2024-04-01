@@ -21,7 +21,7 @@ export default function Register() {
 
         // Update profile met displayName
         await updateProfile(user, { displayName: displayName });
-        navigation.navigate('Home');
+        navigation.navigate('UserPreference');
 
       } catch(err) {
         switch(err.code) {

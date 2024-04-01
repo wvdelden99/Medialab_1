@@ -1,10 +1,11 @@
-import { View, Text, TouchableOpacity, Image, Dimensions } from 'react-native'
+import { View, Text, TouchableOpacity, Image, Dimensions, StatusBar } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { auth } from '../config/firebase'
 import { signOut } from 'firebase/auth';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native'
 import { ArrowRightEndOnRectangleIcon, BookmarkIcon, HeartIcon } from 'react-native-heroicons/solid';
+import { Header } from '../components/layout/Header';
 
 export default function Account() {
   const navigation = useNavigation();
@@ -56,14 +57,11 @@ export default function Account() {
   const buttonWidth = screenWidth * 0.5;
 
   return (
+    <SafeAreaView className="flex-[1] bg-primary-dark">
     <View className="flex-1 bg-primary">
 
-      {/* Logo */}
-      <SafeAreaView className="flex bg-primary-dark pt-2 -mb-2">
-        <View className="flex-row justify-center">
-          <Image source={require("../assets/images/icon_logo.png")} style={{ width: 70, height: 50 }} />
-        </View>
-      </SafeAreaView>
+<StatusBar barStyle="light-content" />
+            <Header />
 
       {/* Profiel bewerken */}
       <View className="flex-1 bg-primary">
@@ -81,10 +79,17 @@ export default function Account() {
 
         {/* Knop profiel bewerken */}
         <View className="px-4">
-          <TouchableOpacity className="py-3 bg-primary-light rounded-md mx-8 mb-20 mt-10"
+          <TouchableOpacity className="py-3 bg-primary-light rounded-md mx-8 mt-10"
                             onPress={() => navigation.navigate('UpdateProfile')}
           >
-            <Text className="text-md font-bold text-center text-white">Profiel bewerken</Text>
+            <Text className="text-md font-bold text-white px-5">Profiel bewerken</Text>
+          </TouchableOpacity>
+        </View>
+        <View className="px-4">
+          <TouchableOpacity className="py-3 bg-primary-light rounded-md mx-8 mb-16 mt-3"
+                            onPress={() => navigation.navigate('UserPreference')}
+          >
+            <Text className="text-md font-bold text-white px-5">Voorkeuren wijzigen</Text>
           </TouchableOpacity>
         </View>
 
@@ -141,5 +146,6 @@ export default function Account() {
         </View>
       </View>
     </View>
+    </SafeAreaView>
   )
 }

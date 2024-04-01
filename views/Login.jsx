@@ -16,7 +16,7 @@ export default function Login() {
       try {
         await signInWithEmailAndPassword(auth, email, password);
 
-        navigation.navigate('Home');
+        navigation.navigate('Tabs');
       } catch(err) {
         setError('Ongeldige gebruikersnaam of wachtwoord.');
       }
