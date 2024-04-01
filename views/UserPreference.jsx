@@ -56,13 +56,13 @@ const UserPreference = () => {
             <Header /> */}
 
         {/* Backbutton */}
-          {/* <View className="flex-row justify-start">
+          <View className="flex-row justify-start">
               <TouchableOpacity 
                   onPress={() => navigation.goBack()}
                   className="bg-primary-dark p-2 rounded-tr-2xl rounded-bl-2xl ml-4">
                   <ArrowLeftIcon size="20" color="white"></ArrowLeftIcon>
               </TouchableOpacity>
-          </View> */}
+          </View>
 
     <View className="flex-1 bg-primary px-8 pt-8"> 
       <Text className="text-2xl text-white font-bold mb-3">Voorkeuren</Text>
@@ -97,16 +97,6 @@ const UserPreference = () => {
           onPress={() => toggleTag("Economie")}
         >
           <Text className="text-base text-center font-bold text-white">{`Economie`}</Text>
-        </TouchableOpacity>
-
-        {/* Zorg */}
-        <TouchableOpacity
-          className={`bg-primary-light p-3 rounded-lg mr-4 mb-4 ${selectedTags.includes(
-            "Zorg"
-          ) && "bg-secondary"}`}
-          onPress={() => toggleTag("Zorg")}
-        >
-          <Text className="text-base text-center font-bold text-white">{`Zorg`}</Text>
         </TouchableOpacity>
 
         {/* Kunst & Cultuur */}
