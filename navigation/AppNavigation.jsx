@@ -16,6 +16,7 @@ import useAuth from '../hooks/useAuth';
 import { HomeIcon, MagnifyingGlassIcon, InboxIcon, UserIcon } from 'react-native-heroicons/solid';
 import UserPreference from '../views/UserPreference';
 import UserPreferenceProfile from '../views/UserPreferenceProfile';
+import { Search } from '../views/Search';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -28,6 +29,7 @@ function HomeStackScreen() {
     <HomeStack.Navigator>
       <HomeStack.Screen name="HomeScreen" component={Home} options={{ headerShown: false }}/>
       <HomeStack.Screen name="Article" component={Article} options={{ headerShown: false }} />
+      <DiscoverStack.Screen name="Search" component={Search} options={{ headerShown: false }} />
     </HomeStack.Navigator>
   );
 }
@@ -37,6 +39,7 @@ function DiscoverStackScreen() {
     <DiscoverStack.Navigator>
       <DiscoverStack.Screen name="Discover" component={Discover} options={{ headerShown: false }}/>
       <DiscoverStack.Screen name="Article" component={Article} options={{ headerShown: false }} />
+      <DiscoverStack.Screen name="Search" component={Search} options={{ headerShown: false }} />
     </DiscoverStack.Navigator>
   );
 }

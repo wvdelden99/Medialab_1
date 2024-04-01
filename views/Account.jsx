@@ -6,6 +6,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native'
 import { ArrowRightEndOnRectangleIcon, BookmarkIcon, HeartIcon } from 'react-native-heroicons/solid';
 import { Header } from '../components/layout/Header';
+import { LinearGradient } from 'expo-linear-gradient';
+import { colors } from './../assets/styles/Styles';
 
 export default function Account() {
   const navigation = useNavigation();
@@ -123,23 +125,22 @@ export default function Account() {
                   <View key={rowIndex} className="flex flex-row">
                     {/* Render images in the current row */}
                     {row.map((image, imageIndex) => (
-                      <Image key={imageIndex} source={image} style={{ width: screenWidth / 3, height: screenWidth / 2.5, margin: 2 }} resizeMode="cover" />
+                     <TouchableOpacity style={{ position: 'relative', margin: 1 }}>
+                     <Image key={imageIndex} source={image} style={{ width: screenWidth / 3, height: screenWidth / 2.5, margin: 2 }} resizeMode="cover" />
+                     <LinearGradient style={{ position: 'absolute', borderRadius: 0, width: screenWidth / 3, height: '100%', marginLeft: 2, marginRight: 0 }} colors={['rgba(0,0,0,0)', colors.primaryLightColor]} />
+                     <View style={{ position: 'absolute', padding: 8, bottom: 0, left: 0, right: 0 }}>
+                       <Text style={{ fontSize: 12, textAlign: 'center', fontWeight: 'bold', color: 'white' }}>Dit is een opgeslagen artikel</Text>
+                     </View>
+                   </TouchableOpacity>
+                   
                     ))}
                   </View>
                 ))}
               </View>
             )}
             {selectedContent === "Loved" && (
-              <View className="flex-1">
-                {/* Render image rows */}
-                {imageRows.map((row, rowIndex) => (
-                  <View key={rowIndex} className="flex flex-row">
-                    {/* Render images in the current row */}
-                    {row.map((image, imageIndex) => (
-                      <Image key={imageIndex} source={image} style={{ width: screenWidth / 3, height: screenWidth / 3, margin: 2 }} resizeMode="cover" />
-                    ))}
-                  </View>
-                ))}
+              <View className="flex-1 justify-center">
+                  <Text className="text-gray-400">Je hebt nog geen berichten geliked.</Text>
               </View>
             )}
           </View>

@@ -5,9 +5,10 @@ import { collection, getDocs, where, query } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { Header } from "../components/layout/Header";
 import { PostCard } from './../components/PostCard';
+import { useNavigation } from '@react-navigation/native';
 
 export function Home() {
-
+    const navigation = useNavigation();
     const [posts, setPosts] = useState([]);
     const [userPreferences, setUserPreferences] = useState([]);
 
@@ -73,7 +74,7 @@ export function Home() {
                                 source={require('./../assets/icons/icon_arrow_01.png')} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity className="mr-2">
+                    <TouchableOpacity className="mr-2" onPress={() => navigation.navigate('Search')}>
                         <Image className="w-6 h-6" style={{ tintColor: "white"}}
                                 source={require('./../assets/icons/icon_search_01.png')} />
                     </TouchableOpacity>
