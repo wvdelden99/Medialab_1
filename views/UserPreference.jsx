@@ -86,60 +86,44 @@ const UserPreference = () => {
                     </TouchableOpacity>
 
                     {/* Kunst & Cultuur */}
-                    <TouchableOpacity className={`bg-primary-light p-3 rounded-lg mr-4 mb-2 
+                    <TouchableOpacity className={`bg-primary-light p-3 rounded-lg mr-4 mb-4 
                                         ${selectedTags.includes("Kunst & Cultuur") && "bg-secondary"}`}
                                         onPress={() => toggleTag("Kunst & Cultuur")}>
                         <Text className="text-base text-center font-bold text-white">{`Kunst & Cultuur`}</Text>
                     </TouchableOpacity>
 
-                {/* Tech */}
-                <TouchableOpacity
-                className={`bg-primary-light p-3 rounded-lg mr-4 mb-2 ${selectedTags.includes(
-                    "Tech"
-                ) && "bg-secondary"}`}
-                onPress={() => toggleTag("Tech")}
-                >
-                <Text className="text-base text-center font-bold text-white">{`Tech`}</Text>
+                    {/* Tech */}
+                    <TouchableOpacity className={`bg-primary-light p-3 rounded-lg mr-4 mb-4 
+                                        ${selectedTags.includes("Tech") && "bg-secondary"}`}
+                                        onPress={() => toggleTag("Tech")}>
+                        <Text className="text-base text-center font-bold text-white">{`Tech`}</Text>
+                    </TouchableOpacity>
+
+                    {/* Opmerkelijk */}
+                    <TouchableOpacity className={`bg-primary-light p-3 rounded-lg mr-4 mb-2 
+                                        ${selectedTags.includes("Opmerkelijk") && "bg-secondary"}`}
+                                        onPress={() => toggleTag("Opmerkelijk")}>
+                        <Text className="text-base text-center font-bold text-white">{`Opmerkelijk`}</Text>
+                    </TouchableOpacity>
+
+                    {/* <TouchableOpacity className={`bg-primary-light p-2 rounded-lg mr-2 mb-2 
+                                            ${selectedTags.includes("Sport") && "bg-blue-500"}`}
+                                            onPress={() => toggleTag("Binnenland")}>
+                        <Text className="text-base text-center font-bold text-white">{`Binnenland`}</Text>
+                    </TouchableOpacity>
+        
+                    <TouchableOpacity className={`bg-primary-light p-2 rounded-lg mr-2 mb-2 
+                                        ${selectedTags.includes("Sport") && "bg-blue-500"}`}
+                                        onPress={() => toggleTag("Buitenland")}>
+                        <Text className="text-base text-center font-bold text-white">{`Buitenland`}</Text>
+                    </TouchableOpacity> */}
+                </View>
+
+                <TouchableOpacity className="py-3 bg-secondary rounded-md mt-7 mb-7"
+                                    onPress={savePreferences}>
+                    <Text className="text-xl font-bold text-center text-white">Voorkeuren Opslaan</Text>
                 </TouchableOpacity>
-
-            {/* Opmerkelijk */}
-            <TouchableOpacity
-            className={`bg-primary-light p-3 rounded-lg mr-4 mb-2 ${selectedTags.includes(
-                "Opmerkelijk"
-            ) && "bg-secondary"}`}
-            onPress={() => toggleTag("Opmerkelijk")}
-            >
-            <Text className="text-base text-center font-bold text-white">{`Opmerkelijk`}</Text>
-            </TouchableOpacity>
-
-        
-            {/* <TouchableOpacity
-            className={`bg-primary-light p-2 rounded-lg mr-2 mb-2 ${selectedTags.includes(
-                "Sport"
-            ) && "bg-blue-500"}`}
-            onPress={() => toggleTag("Binnenland")}
-            >
-            <Text className="text-base text-center font-bold text-white">{`Binnenland`}</Text>
-            </TouchableOpacity>
-
-        
-            <TouchableOpacity
-            className={`bg-primary-light p-2 rounded-lg mr-2 mb-2 ${selectedTags.includes(
-                "Sport"
-            ) && "bg-blue-500"}`}
-            onPress={() => toggleTag("Buitenland")}
-            >
-            <Text className="text-base text-center font-bold text-white">{`Buitenland`}</Text>
-            </TouchableOpacity> */}
-        </View>
-
-        <TouchableOpacity
-            className="py-3 bg-secondary rounded-md mt-7 mb-7"
-            onPress={savePreferences}
-        >
-            <Text className="text-xl font-bold text-center text-white">Voorkeuren Opslaan</Text>
-        </TouchableOpacity>
-        </View>
+            </View>
         </SafeAreaView>
     );
 };
