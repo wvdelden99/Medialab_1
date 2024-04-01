@@ -92,11 +92,11 @@ const UserPreferenceProfile = () => {
                         <Text className="text-base text-center font-bold text-white">{`Zorg`}</Text>
                     </TouchableOpacity>
 
-                    {/* Kunst & Cultuur */}
+                    {/* Cultuur */}
                     <TouchableOpacity className={`bg-primary-light p-3 rounded-lg mr-4 mb-4 
-                                        ${selectedTags.includes("Kunst & Cultuur") && "bg-secondary"}`}
-                                        onPress={() => toggleTag("Kunst & Cultuur")}>
-                        <Text className="text-base text-center font-bold text-white">{`Kunst & Cultuur`}</Text>
+                                        ${selectedTags.includes("Cultuur") && "bg-secondary"}`}
+                                        onPress={() => toggleTag("Cultuur")}>
+                        <Text className="text-base text-center font-bold text-white">{`Cultuur`}</Text>
                     </TouchableOpacity>
 
                     {/* Tech */}
@@ -107,7 +107,7 @@ const UserPreferenceProfile = () => {
                     </TouchableOpacity>
 
                     {/* Opmerkelijk */}
-                    <TouchableOpacity className={`bg-primary-light p-3 rounded-lg mr-4 mb-2 
+                    <TouchableOpacity className={`bg-primary-light p-3 rounded-lg mr-4 mb-4 
                                         ${selectedTags.includes("Opmerkelijk") && "bg-secondary"}`}
                                         onPress={() => toggleTag("Opmerkelijk")}>
                         <Text className="text-base text-center font-bold text-white">{`Opmerkelijk`}</Text>

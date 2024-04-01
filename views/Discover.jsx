@@ -61,6 +61,17 @@ export function Discover() {
                     </View>
 
                     <View className="my-2">
+                        <Text className="my-4 text-md font-semibold text-white">Sport</Text>
+
+                        <FlatList
+                            data={filterPostsByCategory('Sport').slice(0, maxItems)}
+                            horizontal
+                            showsHorizontalScrollIndicator={false}
+                            keyExtractor={item => item.id.toString()}
+                            renderItem={({ item }) => <PostCardCarousel post={item} />} />
+                    </View>
+
+                    <View className="my-2">
                         <Text className="my-4 text-md font-semibold text-white">Cultuur</Text>
 
                         <FlatList
@@ -68,18 +79,7 @@ export function Discover() {
                             horizontal
                             showsHorizontalScrollIndicator={false}
                             keyExtractor={item => item.id.toString()}
-                            renderItem={({item}) => <PostCardCarousel uri={item.uri} />}/>
-                    </View>
-
-                    <View className="my-2">
-                        <Text className="my-4 text-md font-semibold text-white">Economie</Text>
-
-                        <FlatList
-                            data={filterPostsByCategory('Economie').slice(0, maxItems)}
-                            horizontal
-                            showsHorizontalScrollIndicator={false}
-                            keyExtractor={item => item.id.toString()}
-                            renderItem={({item}) => <PostCardCarousel uri={item.uri} />}/>
+                            renderItem={({ item }) => <PostCardCarousel post={item} />} />
                     </View>
                 </View>
             </ScrollView>
