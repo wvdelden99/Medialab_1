@@ -15,6 +15,7 @@ import { Article } from '../views/Article'
 import useAuth from '../hooks/useAuth';
 import { HomeIcon, MagnifyingGlassIcon, InboxIcon, UserIcon } from 'react-native-heroicons/solid';
 import UserPreference from '../views/UserPreference';
+import UserPreferenceProfile from '../views/UserPreferenceProfile';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -91,10 +92,11 @@ const NavigationStack = () => {
       <Stack.Navigator>
         {user ? (
           <>
-            <Stack.Screen name="UserPreference" component={UserPreference} options={{ headerShown: false }} />
             <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
             <Stack.Screen name="UpdateProfile" component={UpdateProfile} options={{ headerShown: false }} />
             <Stack.Screen name="UpdatePassword" component={UpdatePassword} options={{ headerShown: false }} />
+            <Stack.Screen name="UserPreferenceProfile" component={UserPreferenceProfile} options={{ headerShown: false }} />
+            <Stack.Screen name="UserPreference" component={UserPreference} options={{ headerShown: false }} />
           </>
         ) : (
           <>

@@ -87,7 +87,7 @@ export default function Account() {
         </View>
         <View className="px-4">
           <TouchableOpacity className="py-3 bg-primary-light rounded-md mx-8 mb-16 mt-3"
-                            onPress={() => navigation.navigate('UserPreference')}
+                            onPress={() => navigation.navigate('UserPreferenceProfile')}
           >
             <Text className="text-md font-bold text-white px-5">Voorkeuren wijzigen</Text>
           </TouchableOpacity>
