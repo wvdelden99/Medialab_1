@@ -24,6 +24,10 @@ Installeer Expo CLI wereldwijd op je systeem:
 Voer het volgende commando uit om alle vereiste packages te installeren (inclusief React Native, Expo, Firebase, en andere dependencies):
 `npm install`
 
+##### 5. Open het project in Expo
+Voer het volgende commando uit het project te openen in Expo:
+`npx expo start -c`
+
 > Raadpleeg de documentatie van elke gebruikte package voor specifieke integratie-instructies en configuraties.
 
 ## Functies en kenmerken
