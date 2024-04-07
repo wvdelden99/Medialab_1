@@ -37,7 +37,7 @@ Voor vragen, feedback of ondersteuning met betrekking tot NPO Visuals, kun je co
 
 [1016131@hr.nl](mailto:1016131@hr.nl)
 
-Voel je vrij om ons een e-mail te sturen met je vragen of opmerkingen. We streven ernaar om snel 
+Voel je vrij om ons een e-mail te sturen met je vragen of opmerkingen. We streven ernaar om snel te reageren en je te helpen bij eventuele problemen of suggesties met betrekking tot het project.
 
 
 
